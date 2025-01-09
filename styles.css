@@ -13,7 +13,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem; /* Adjust this value based on the height of your nav bar */
+    scroll-padding-top: 6rem; /* Adjust this value based on the height of your nav bar */
 }
 
 body {
@@ -105,6 +105,28 @@ section h2::after {
     border-radius: 2px; /*give it rounded edge*/
 }
 
+.typewriter h2 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Centers the text */
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: orange; }
+}
+
 /*About Section*/
 #about-section {
     min-height: 100vh;
@@ -113,7 +135,7 @@ section h2::after {
     text-align: center;
     align-items: center;
     justify-content: center;
-    padding: 2rem 2rem; /*top & bottom, left & right*/
+    padding: 8rem 2rem; /*top & bottom, left & right*/
 }
 
 #about-section h2{
