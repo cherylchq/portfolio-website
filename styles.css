@@ -261,6 +261,9 @@ section h2::after {
     align-items: center;
     text-align: center;
     gap: 2rem;
+    overflow: visible;
+    padding: 0 1rem;
+    position: relative;
 }
 
 #projects-section h2 {
@@ -270,18 +273,22 @@ section h2::after {
 }
 
 .projects-scroll-container {
-    display: flex;
-    gap: 2.5rem;
-    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 1.5rem 1rem;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     justify-content: center;
-    overflow-x: auto;
+    overflow: visible;
+    flex-wrap: wrap;
+    white-space: normal;
+    position: relative;
 }
 
 .project-box {
-    flex: 0 0 350px;
+    width: 100%;
     min-height: 500px;
     text-align: left;
     border: none;
@@ -290,9 +297,12 @@ section h2::after {
     background-color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .project-box:hover {
@@ -318,6 +328,9 @@ section h2::after {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--text-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .project-box h5 {
@@ -329,6 +342,9 @@ section h2::after {
     border-radius: 4px;
     display: inline-block;
     font-size: 0.85rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .project-box p {
@@ -337,6 +353,11 @@ section h2::after {
     color: #494a4a;
     line-height: 1.7;
     flex-grow: 1;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    margin-bottom: 0;
 }
 
 /* Skills Section */
@@ -493,32 +514,37 @@ footer p {
 }
 
 /* Media Queries for Responsiveness */
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .projects-scroll-container {
-        flex-wrap: nowrap;
-        overflow-x: visible;
+        max-width: 1200px;
+        gap: 2.5rem;
     }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1399px) {
     .projects-scroll-container {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 1.5rem;
+        max-width: 1000px;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .projects-scroll-container {
+        max-width: 900px;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .projects-scroll-container {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        gap: 1.5rem;
+        padding: 1rem 0.5rem;
     }
     
-    .projects-scroll-container::-webkit-scrollbar {
-        height: 8px;
-    }
-    
-    .projects-scroll-container::-webkit-scrollbar-track {
-        background: #f0f0f0;
-        border-radius: 10px;
-    }
-    
-    .projects-scroll-container::-webkit-scrollbar-thumb {
-        background-color: var(--accent-color);
-        border-radius: 10px;
+    .project-box {
+        min-height: 480px;
     }
 }
 
@@ -564,6 +590,16 @@ footer p {
     
     .experience-header h4 {
         font-size: 1.1rem;
+    }
+    
+    .projects-scroll-container {
+        gap: 1rem;
+        padding: 0.5rem 0.5rem;
+    }
+    
+    .project-box {
+        min-height: 450px;
+        padding: 1rem;
     }
 }
 
